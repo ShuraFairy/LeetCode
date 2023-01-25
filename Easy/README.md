@@ -1,4 +1,3 @@
-# Leetcode
 
 1. Two_Sum
 70. Climbing Stairs
