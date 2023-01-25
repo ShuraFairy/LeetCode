@@ -38,18 +38,93 @@ struct TreeNode
 };
  
 // 1 version
-class Solution 
-{
-public:
-    int climbStairs(int n) 
-    {
+//class Solution 
+//{
+//public:
+//    int climbStairs(int n) 
+//    {
+//        int f[50];
+//        f[1] = 1;
+//        f[2] = 2;
+//        for (int i = 3; i <= n; ++i)
+//            f[i] = f[i - 1] + f[i - 2];
+//        return f[n];
+//    }
+//};
 
+// 2 version
+//class Solution
+//{
+//public:
+//    int climbStairs(int n)
+//    {
+//        if (n == 1)
+//            return 1;
+//        int prev = 1;
+//        int curr = 2;
+//        for (int i = 3; i <= n; ++i)
+//        {
+//            int next = prev + curr;
+//            prev = curr;
+//            curr = next;
+//        }
+//        
+//        return curr;
+//    }
+//};
+ 
+// 3 version
+struct Matrix
+{
+    int a[2][2];
+    friend Matrix operator * (const Matrix& left, const Matrix& right);
+    Matrix(int a00, int a01, int a10, int a11) : a{ a00, a01, a10, a11 }
+    { }
+    static Matrix one()
+    {
+        // 1 0
+        // 0 1
+        return Matrix{ 1, 0, 0, 1 };
+    }
+    Matrix pow(int n) const
+    {
+        assert(n >= 0);
+        if (n == 0)
+            return one();
+        else if (n % 2 == 0)
+        {
+            Matrix sqrt = this->pow(n / 2);
+            return sqrt * sqrt;
+        }
+        else
+            return *this * this->pow(n - 1);
     }
 };
 
-// 2 version
- 
-// 3 version
+Matrix operator * (const Matrix& left, const Matrix& right)
+{
+    Matrix ans(0, 0, 0, 0);
+    for (int i = 0; i < 2; ++i)
+    {
+        for (int j = 0; j < 2; ++j)
+        {
+            for (int k = 0; k < 2; ++k)
+            {
+                ans.a[i][j] += left.a[i][k] * right.a[k][j];
+            }
+        }
+    }
+    return ans;
+}
+class Solution
+{    
+public:
+    int climbStairs(int n)
+    {
+        Matrix p = Matrix(0, 1, 1, 1).pow(n - 1);
+        return p.a[0][1] + p.a[1][1];        
+    }
+};
 
 // 4 version
 
