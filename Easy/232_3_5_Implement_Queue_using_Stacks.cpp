@@ -38,26 +38,50 @@ struct TreeNode
 };
  
 // 1 version
-class MyQueue {
+class MyQueue 
+{
+    std::stack<int, std::vector<int>> in;
+    std::stack<int, std::vector<int>> out;
+
+    void prepareOut()
+    {
+        if (out.empty())
+        {
+            while (!in.empty())
+            {
+                out.push(in.top());
+                in.pop();
+            }
+        }
+    }
 public:
-    MyQueue() {
 
+    void push(int x) 
+    {
+        in.push(x);
     }
 
-    void push(int x) {
-
+    int pop() 
+    {
+        if (empty())
+            throw std::logic_error("pop from empty queue");
+        prepareOut();
+        int x = out.top();
+        out.pop();
+        return x;
     }
 
-    int pop() {
-
+    int peek() 
+    {
+        if (empty())
+            throw std::logic_error("peek from empty queue");
+        prepareOut();
+        return out.top();
     }
 
-    int peek() {
-
-    }
-
-    bool empty() {
-
+    bool empty() 
+    {
+        return in.empty() && out.empty();
     }
 };
 
