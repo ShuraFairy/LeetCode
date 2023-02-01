@@ -15,6 +15,36 @@ const int FASTIO = []() {
     return 0;
 }();
 
+// my version
+//class Solution 
+//{
+//public:
+//    int findComplement(int num) 
+//    {
+//        std::array<int, 31> arr;
+//        for (int i = 0; i < 31; ++i)
+//            arr[i] = 0;
+//
+//        int count = 0;
+//        while(num > 0)
+//        {
+//            if ((num & 0x1) == 1)
+//                arr[count] = 1;
+//            num = num >> 1;
+//            count++;
+//        }
+//        int result = 0;
+//        for (int i = 0; i < count; ++i)
+//        {
+//            if (arr[i] == 0)
+//                result += pow(2, i);            
+//        }
+//
+//        return result;
+//    }
+//};
+
+
 // 1 version
 //class Solution 
 //{

@@ -31,6 +31,24 @@
 
 389 Find the Difference
 
+409 Longest Palindrome
+
+448 Find All Numbers Disappeared in an Array
+
+476 Number Complement
+
+496 Next Greater Element I
+
+530 Minimum Absolute Difference in BST
+
+543 Diameter of Binary Tree
+
+628 Maximum Product of Three Numbers
+
+693 Binary Number with Alternating Bits
+
+696 Count Binary Substrings
+
 925 Long Pressed Name
 
 
