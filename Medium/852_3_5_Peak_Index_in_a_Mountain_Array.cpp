@@ -11,6 +11,30 @@ const int FASTIO = [](){
     return 0;
 }();
 
+// my version
+//class Solution 
+//{
+//public:
+//
+//    int peakIndexInMountainArray(std::vector<int>& arr) 
+//    {
+//        std::vector<int>::size_type size = arr.size();
+//        int indexPeak = 0;
+//        int max = 0;
+//
+//        for (size_t i = 0; i < size; ++i)
+//        {
+//            if (max < arr[i])
+//            {
+//                max = arr[i];
+//                indexPeak = i;
+//            }
+//        }
+//
+//        return indexPeak;
+//    }
+//};
+
 // 1 version
 class Solution 
 {

@@ -11,3 +11,7 @@
 453 Minimum Moves to Equal Array Elements
 
 538 Convert BST to Greater Tree
+
+720 Longest Word in Dictionary
+
+852 Peak Index in a Mountain Array

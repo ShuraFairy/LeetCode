@@ -3,6 +3,33 @@
 #include <cassert>
 #include <type_traits>
 
+// my version
+//class Solution {
+//public:
+//    std::vector<int> sortArrayByParity(std::vector<int>& nums) 
+//    {
+//        std::vector<int>::size_type size = nums.size();
+//        std::vector<int> temp;
+//        temp.reserve(size);
+//
+//        for (size_t i = 0; i < size; ++i)
+//        {
+//            if (nums[i] % 2 == 0)
+//                temp.push_back(nums[i]);            
+//        }
+//
+//        for (size_t i = 0; i < size; ++i)
+//        {
+//            if (nums[i] % 2 != 0)
+//                temp.push_back(nums[i]);
+//        }
+//
+//        return temp;
+//    }    
+//};
+
+ 
+//
 class Solution {
 public:
     std::vector<int> sortArrayByParity(std::vector<int>& nums)

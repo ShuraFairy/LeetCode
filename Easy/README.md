@@ -49,7 +49,41 @@
 
 696 Count Binary Substrings
 
+703 Kth Largest Element in a Stream
+
+717 1-bit and 2-bit Characters
+
+766 Toeplitz Matrix
+
+783 Minimum Distance Between BST Nodes
+
+796 Rotate String
+
+821 Shortest Distance to a Character
+
+836 Rectangle Overlap
+
+844 Backspace String Compare
+
+868 Binary Gap
+
+872 Leaf-Similar Trees
+
+888 Fair Candy Swap
+
+897 Increasing Order Search Tree
+
+905 Sort Array By Parity
+
+917 Reverse Only Letters
+
+922 Sort Array By Parity II
+
 925 Long Pressed Name
+
+933 Number of Recent Calls
+
+989 Add to Array-Form of Integer
 
 
 
