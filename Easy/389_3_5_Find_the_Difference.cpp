@@ -18,6 +18,27 @@ const int FASTIO = []() {
     return 0;
 }();
 
+// my version
+//class Solution {
+//public:
+//    char findTheDifference(std::string s, std::string t)
+//    {
+//        if (s == "")
+//            return t[0];
+//        std::sort(begin(s), end(s));
+//        std::sort(begin(t), end(t));
+//        int i = 0;
+//        std::cout << s << " " << t;
+//        for (; i < s.size(); ++i)
+//        {
+//            if (s[i] != t[i])
+//                return t[i];
+//        }
+//        return t[i];
+//    }
+//};
+
+
 // 1 version
 //class Solution 
 //{

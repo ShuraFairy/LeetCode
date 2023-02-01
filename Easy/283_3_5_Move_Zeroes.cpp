@@ -18,6 +18,24 @@ const int FASTIO = []() {
     return 0;
 }();
 
+// my version
+//class Solution 
+//{
+//public:
+//    void moveZeroes(std::vector<int>& v) 
+//    {
+//        size_t size1 = v.size();
+//        v.erase(std::remove(v.begin(), v.end(), 0), v.end());
+//        size_t size2 = v.size();
+//
+//        int sizero = size1 - size2;
+//
+//        for (int i = 0; i < sizero; ++i)
+//            v.push_back(0);
+//    }
+//};
+
+
 // 1 version
 //class Solution 
 //{

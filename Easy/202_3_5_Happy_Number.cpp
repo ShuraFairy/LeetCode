@@ -115,6 +115,8 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
     std::ios_base::sync_with_stdio(false);    
     std::cin.tie(nullptr);
 
+    int* p = 0;
+    delete p;
     //Solution s;
     /*std::vector<int> a{ 4, 1, 2, 1, 2 };
     std::cout << s.singleNumber(a) << std::endl;*/
