@@ -38,61 +38,18 @@ struct TreeNode
 };
 
 // my version
-//class Solution 
-//{
-//public:
-//    bool isPowerOfTwo(int n)
-//    {
-//        size_t _n = 0;
-//        if (n > 0)
-//            _n = n;
-//        else
-//            _n = static_cast<long long>(n) * -1;
-//        int one = 0;
-//        for (size_t i = 0; i < 32; ++i)
-//        {
-//            if ((_n & 1) == 1)
-//                one++;
-//            _n = _n >> 1;
-//        }
-//        if ((n > 0 && one == 1))
-//            return true;
-//        else
-//            return false;
-//    }
-//};
 
 // 1 version
-//class Solution 
-//{
-//public:
-//    bool isPowerOfTwo(int n)
-//    {
-//        return n > 0 && (n & (n - 1)) == 0;
-//    }
-//};
-
-// 2 version
 class Solution 
 {
 public:
-    bool isPowerOfTwo(int n)
+    bool isValid(std::string s) 
     {
-        if (n < 0) return false;
-        size_t _n = n;        
-        int one = 0;
-        for (size_t i = 0; i < 32; ++i)
-        {
-            if ((_n & 1) == 1)
-                one++;
-            _n = _n >> 1;
-        }
-        if ((n > 0 && one == 1))
-            return true;
-        else
-            return false;
+
     }
 };
+
+// 2 version
  
 // 3 version
 
@@ -107,9 +64,9 @@ public:
 int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
 {
     std::ios_base::sync_with_stdio(false);    
-    std::cin.tie(nullptr);
+    std::cin.tie(nullptr);        
 
-    Solution s;
+//    Solution s;
     std::vector<int> a{ 0, 0, 2, 1 };
     std::vector<int> ans;
 //    ans = s.addToArrayForm(a, 34);

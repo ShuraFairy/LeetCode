@@ -38,63 +38,47 @@ struct TreeNode
 };
 
 // my version
-//class Solution 
-//{
-//public:
-//    bool isPowerOfTwo(int n)
-//    {
-//        size_t _n = 0;
-//        if (n > 0)
-//            _n = n;
-//        else
-//            _n = static_cast<long long>(n) * -1;
-//        int one = 0;
-//        for (size_t i = 0; i < 32; ++i)
-//        {
-//            if ((_n & 1) == 1)
-//                one++;
-//            _n = _n >> 1;
-//        }
-//        if ((n > 0 && one == 1))
-//            return true;
-//        else
-//            return false;
-//    }
-//};
 
 // 1 version
 //class Solution 
 //{
 //public:
-//    bool isPowerOfTwo(int n)
+//    bool isPowerOfThree(int n) 
 //    {
-//        return n > 0 && (n & (n - 1)) == 0;
+//        return n > 0 && 1'162'261'467 % n == 0;   // 3^19
 //    }
 //};
 
 // 2 version
-class Solution 
-{
-public:
-    bool isPowerOfTwo(int n)
-    {
-        if (n < 0) return false;
-        size_t _n = n;        
-        int one = 0;
-        for (size_t i = 0; i < 32; ++i)
-        {
-            if ((_n & 1) == 1)
-                one++;
-            _n = _n >> 1;
-        }
-        if ((n > 0 && one == 1))
-            return true;
-        else
-            return false;
-    }
-};
+//class Solution
+//{
+//public:
+//    bool isPowerOfThree(int n)
+//    {
+//        if (n <= 0)
+//            return false;
+//        while (n % 3 == 0)
+//            n /= 3;
+//        return n == 1;
+//    }
+//};
  
 // 3 version
+class Solution
+{
+public:
+    bool isPowerOfThree(int n)
+    {
+        if (n <= 0)
+            return false;
+        for (int d : {43'046'721, 6'561, 81, 9, 3})
+        {
+            if (n % d == 0)
+                n /= d;
+        }
+        return n == 1;
+    }
+};
 
 // 4 version
 

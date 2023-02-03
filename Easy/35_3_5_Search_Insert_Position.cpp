@@ -38,61 +38,41 @@ struct TreeNode
 };
 
 // my version
-//class Solution 
-//{
-//public:
-//    bool isPowerOfTwo(int n)
-//    {
-//        size_t _n = 0;
-//        if (n > 0)
-//            _n = n;
-//        else
-//            _n = static_cast<long long>(n) * -1;
-//        int one = 0;
-//        for (size_t i = 0; i < 32; ++i)
-//        {
-//            if ((_n & 1) == 1)
-//                one++;
-//            _n = _n >> 1;
-//        }
-//        if ((n > 0 && one == 1))
-//            return true;
-//        else
-//            return false;
-//    }
-//};
 
 // 1 version
 //class Solution 
 //{
 //public:
-//    bool isPowerOfTwo(int n)
+//    size_t searchInsert(std::vector<int>& a, int target) 
 //    {
-//        return n > 0 && (n & (n - 1)) == 0;
+//        size_t left = (size_t)0 - 1;
+//        size_t right = a.size();
+//        while (right - left > 1)
+//        {
+//            size_t mid = left + ((right - left) >> 1);
+//            if (a[mid] < target)
+//                left = mid;
+//            else
+//                right = mid;
+//        }
+//        return right;
 //    }
 //};
 
 // 2 version
-class Solution 
+class Solution
 {
 public:
-    bool isPowerOfTwo(int n)
+    size_t searchInsert(std::vector<int>& a, int target)
     {
-        if (n < 0) return false;
-        size_t _n = n;        
-        int one = 0;
-        for (size_t i = 0; i < 32; ++i)
-        {
-            if ((_n & 1) == 1)
-                one++;
-            _n = _n >> 1;
-        }
-        if ((n > 0 && one == 1))
-            return true;
-        else
-            return false;
+        size_t i = 0;
+        while (i < a.size() && a[i] < target)
+            i++;
+        
+        return i;
     }
 };
+
  
 // 3 version
 
@@ -109,7 +89,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
     std::ios_base::sync_with_stdio(false);    
     std::cin.tie(nullptr);
 
-    Solution s;
+//    Solution s;
     std::vector<int> a{ 0, 0, 2, 1 };
     std::vector<int> ans;
 //    ans = s.addToArrayForm(a, 34);

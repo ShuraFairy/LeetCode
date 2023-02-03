@@ -1,9 +1,13 @@
 
 1 Two_Sum
 
+20 Valid Parentheses
+
 70 Climbing Stairs
 
 100 Same Tree
+
+110 Balanced Binary Tree
 
 121 Best Time to Buy and Sell Stock
 
@@ -26,6 +30,8 @@
 268 Missing Number
 
 283 Move Zeroes
+
+326 Power of Three
 
 350 Intersection of Two Arrays II
 
