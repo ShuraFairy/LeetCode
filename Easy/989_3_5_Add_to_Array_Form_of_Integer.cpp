@@ -92,7 +92,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
     std::ios_base::sync_with_stdio(false);    
     std::cin.tie(nullptr);
 
-    Solution s;
+//    Solution s;
     std::vector<int> a{ 0, 0, 2, 1 };
     std::vector<int> ans;
 //    ans = s.addToArrayForm(a, 34);

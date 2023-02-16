@@ -1,3 +1,5 @@
+#include <cstdio>   
+#include <cstdlib> 
 #include <cassert>
 #include <deque>
 #include <ios>
@@ -12,6 +14,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <random>
+#include <set>
+#include <string>
 
 #pragma push_macro("assert")
 #undef assert
@@ -23,7 +27,16 @@ const int FASTIO = []() {
     return 0;
 }();
 
+// Definition for singly - linked list.
+struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}    
+};
 
+// Definition for a binary tree node.
 struct TreeNode 
 {
     int val;
@@ -33,52 +46,41 @@ struct TreeNode
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
- 
+
+// my version
+
 // 1 version
 class Solution 
 {
-    void traversal(TreeNode* node, int& minDiff, int& prev, bool& prevFilled)
-    {
-        if (node == nullptr)
-            return;
-        traversal(node->left, minDiff, prev, prevFilled);
-        if (prevFilled)
-            minDiff = std::min(minDiff, node->val - prev);
-        prev = node->val;
-        prevFilled = true;
-        traversal(node->right, minDiff, prev, prevFilled);
-    }
-
 public:
-    int getMinimumDifference(TreeNode* root) 
+    int findUnsortedSubarray(std::vector<int>& nums) 
     {
-        int minDiff = INT_MAX;
-        int prev = 0;
-        bool prevFilled = false;
-        traversal(root, minDiff, prev, prevFilled);
-        return minDiff;
+
     }
 };
 
 // 2 version
-
+ 
 // 3 version
 
 // 4 version
 
 // 5 version
 
-// 5 version
+// 6 version
 
+// 7 version
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
 {
     std::ios_base::sync_with_stdio(false);    
-    std::cin.tie(nullptr);
+    std::cin.tie(nullptr);        
 
-//    Solution s;
-    /*std::vector<int> a{ 4, 1, 2, 1, 2 };
-    std::cout << s.singleNumber(a) << std::endl;*/
+    Solution s;
+    //std::cout << s.reverseBits(3) << std::endl;
+    
+    int* p1 = (int*)malloc(4 * sizeof(int));
+    free(p1);    
 
     return EXIT_SUCCESS;
 }

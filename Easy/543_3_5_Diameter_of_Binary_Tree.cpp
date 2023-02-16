@@ -116,13 +116,13 @@ struct Node
 };
 class Solution
 {
-    Node* convert(TreeNode* oldNode, TreeNode* parent, Node* newParent)
+    Node* convert(TreeNode* oldNode, /*TreeNode* parent,*/ Node* newParent)
     {
         if (oldNode == nullptr)
             return nullptr;
         Node* newNode = new Node(newParent, nullptr, nullptr);
-        newNode->next[1] = convert(oldNode->left, oldNode, newNode);
-        newNode->next[2] = convert(oldNode->right, oldNode, newNode);
+        newNode->next[1] = convert(oldNode->left, newNode);
+        newNode->next[2] = convert(oldNode->right, newNode);
         return newNode;
     }
 
@@ -158,7 +158,7 @@ class Solution
 public:
     int diameterOfBinaryTree(TreeNode* oldRoot)
     {
-        Node* root = convert(oldRoot, nullptr, nullptr);        
+        Node* root = convert(oldRoot, nullptr);        
         return findMax(root, nullptr);
     }
 };
@@ -175,7 +175,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
     std::ios_base::sync_with_stdio(false);    
     std::cin.tie(nullptr);
 
-    Solution s;
+//    Solution s;
     /*std::vector<int> a{ 4, 1, 2, 1, 2 };
     std::cout << s.singleNumber(a) << std::endl;*/
 

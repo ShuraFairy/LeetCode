@@ -37,8 +37,8 @@ public:
     std::vector<int> sortArrayByParity(std::vector<int>& nums)
     {
         std::vector<int>::size_type size = nums.size();        
-        int even = size - 2;
-        int odd = size - 1;
+        int even = (int)size - 2;
+        int odd = (int)size - 1;
 
         while (true)
         {

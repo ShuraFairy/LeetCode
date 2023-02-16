@@ -285,8 +285,8 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
     MinStack* obj = new MinStack();    
     obj->push(1);
     obj->pop();
-    int param_3 = obj->top();
-    int param_4 = obj->getMin();
+//    int param_3 = obj->top();
+//    int param_4 = obj->getMin();
 
 //    Solution s;
     std::vector<int> a{ 0, 0, 2, 1 };

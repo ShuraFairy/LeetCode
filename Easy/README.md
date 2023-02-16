@@ -17,11 +17,15 @@
 
 169 Majority Element
 
+190 Reverse Bits
+
 202 Happy Number
 
 231 Power of Two
 
 232 Implement Queue using Stacks
+
+234 Palindrome Linked List
 
 257 Binary Tree Paths
 
