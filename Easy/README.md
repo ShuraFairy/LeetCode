@@ -9,11 +9,17 @@
 
 110 Balanced Binary Tree
 
+111 Minimum Depth of Binary Tree
+
 121 Best Time to Buy and Sell Stock
 
 125 Valid Palindrome
 
 136 Single Number
+
+160 Intersection of Two Linked Lists
+
+168 Excel Sheet Column Title
 
 169 Majority Element
 
@@ -33,7 +39,11 @@
 
 268 Missing Number
 
+278 First Bad Version
+
 283 Move Zeroes
+
+290 Word Pattern
 
 326 Power of Three
 
@@ -54,6 +64,8 @@
 543 Diameter of Binary Tree
 
 628 Maximum Product of Three Numbers
+
+680 Valid Palindrome II
 
 693 Binary Number with Alternating Bits
 

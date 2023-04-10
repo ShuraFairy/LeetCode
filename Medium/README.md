@@ -10,15 +10,21 @@
 
 189 Rotate Array
 
+204 Count Primes
+
 235 Lowest Common Ancestor of a Binary Search Tree
 
 437 Path Sum III
 
 453 Minimum Moves to Equal Array Elements
 
+475 Heaters
+
 538 Convert BST to Greater Tree
 
 581 Shortest Unsorted Continuous Subarray
+
+665 Non-decreasing Array
 
 720 Longest Word in Dictionary
 
