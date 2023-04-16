@@ -27,6 +27,12 @@
 
 202 Happy Number
 
+203 Remove Linked List Elements
+
+205 Isomorphic Strings
+
+219 Contains Duplicate II
+
 231 Power of Two
 
 232 Implement Queue using Stacks

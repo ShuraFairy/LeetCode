@@ -8,6 +8,8 @@
 
 167 Two Sum II - Input Array Is Sorted
 
+172 Factorial Trailing Zeroes
+
 189 Rotate Array
 
 204 Count Primes
