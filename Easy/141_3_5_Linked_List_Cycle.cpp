@@ -50,24 +50,65 @@ struct TreeNode
 // my version
 
 // 1 version
+//class Solution 
+//{
+//public:
+//	bool hasCycle(ListNode* head) 
+//	{
+//		std::unordered_set<ListNode*> visited;
+//		while (true)
+//		{
+//			if (head == nullptr)
+//				return false;
+//			auto res = visited.insert(head);
+//			if (!res.second)
+//				return true;
+//			head = head->next;
+//		}
+//	}
+//};
+
+// 2 version
+//class Solution 
+//{
+//public:
+//	bool hasCycle(ListNode* head) 
+//	{
+//		ListNode* slow = head;
+//		ListNode* fast = head;
+//		while (true)
+//		{
+//			if (fast == nullptr)
+//				return false;
+//			fast = fast->next;
+//			if (fast == nullptr)
+//				return false;
+//			fast = fast->next;
+//			slow = slow->next;
+//			if (fast == slow)
+//				return true;
+//		}
+//	}
+//};
+
+// 3 version
 class Solution 
 {
 public:
-	int trailingZeroes(int n) 
+	bool hasCycle(ListNode* head) 
 	{
-		int sum = 0;
-		while (n > 0)
+		std::unordered_set<ListNode*> visited;
+		while (true)
 		{
-			n /= 5;
-			sum += n;
+			if (head == nullptr)
+				return false;
+			auto [it, inserted] = visited.insert(head);
+			if (!inserted)
+				return true;
+			head = head->next;
 		}
-		return sum;
 	}
 };
-
-// 2 version
-
-// 3 version
 
 // 4 version
 
@@ -77,16 +118,13 @@ public:
 
 // 7 version
 
+
 int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
 {
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr);
 
-	//Solution s;
-	//std::cout << s.reverseBits(3) << std::endl;
-
-	int* p1 = (int*)malloc(4 * sizeof(int));
-	free(p1);
 
 	return EXIT_SUCCESS;
 }
+

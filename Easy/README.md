@@ -3,6 +3,8 @@
 
 20 Valid Parentheses
 
+67 Add Binary
+
 70 Climbing Stairs
 
 100 Same Tree
@@ -11,11 +13,15 @@
 
 111 Minimum Depth of Binary Tree
 
+112 Path Sum
+
 121 Best Time to Buy and Sell Stock
 
 125 Valid Palindrome
 
 136 Single Number
+
+141 Linked List Cycle
 
 160 Intersection of Two Linked Lists
 
@@ -51,15 +57,23 @@
 
 290 Word Pattern
 
+303 Range Sum Query - Immutable
+
 326 Power of Three
 
+342 Power of Four
+
 350 Intersection of Two Arrays II
+
+374 Guess Number Higher or Lower
 
 389 Find the Difference
 
 409 Longest Palindrome
 
 448 Find All Numbers Disappeared in an Array
+
+459 Repeated Substring Pattern
 
 476 Number Complement
 
@@ -69,7 +83,13 @@
 
 543 Diameter of Binary Tree
 
+572 Subtree of Another Tree
+
 628 Maximum Product of Three Numbers
+
+645 Set Mismatch
+
+671 Second Minimum Node In a Binary Tree
 
 680 Valid Palindrome II
 

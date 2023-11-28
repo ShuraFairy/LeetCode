@@ -11,6 +11,8 @@
 #include <bitset>
 #include <array>
 #include <stack>
+#include <algorithm>
+#include <numeric>
 #include <unordered_map>
 #include <unordered_set>
 #include <random>
@@ -50,22 +52,46 @@ struct TreeNode
 // my version
 
 // 1 version
-class Solution 
-{
-public:
-	int trailingZeroes(int n) 
-	{
-		int sum = 0;
-		while (n > 0)
-		{
-			n /= 5;
-			sum += n;
-		}
-		return sum;
-	}
-};
+//class Solution 
+//{
+//public:
+//    int rob(std::vector<int>& a) 
+//	{
+//		if (a.empty())
+//			return 0;
+//		std::vector<int>& maxSum = a;
+//		if(1 < a.size())
+//			maxSum[1] = std::max(maxSum[0], a[1]);
+//		for (size_t i = 2; i < a.size(); ++i)
+//		{
+//			maxSum[i] = std::max(a[i] + maxSum[i - 2], maxSum[i - 1]);
+//		}
+//		return maxSum.back();
+//    }
+//};
 
 // 2 version
+class Solution
+{
+public:
+	int rob(const std::vector<int>& a)
+	{
+		if (a.empty())
+			return 0;
+		if (a.size() == 1)
+			return a[0];
+		int prevMaxSum = a[0];
+		int curMaxSum = std::max(a[0], a[1]);
+		for (size_t i = 2; i < a.size(); ++i)
+		{
+			int nextMaxSum = std::max(a[i] + prevMaxSum, curMaxSum);
+			prevMaxSum = curMaxSum;
+			curMaxSum = nextMaxSum;
+		}
+
+		return curMaxSum;
+	}
+};
 
 // 3 version
 
@@ -77,16 +103,12 @@ public:
 
 // 7 version
 
+
 int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
 {
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr);
 
-	//Solution s;
-	//std::cout << s.reverseBits(3) << std::endl;
-
-	int* p1 = (int*)malloc(4 * sizeof(int));
-	free(p1);
 
 	return EXIT_SUCCESS;
 }

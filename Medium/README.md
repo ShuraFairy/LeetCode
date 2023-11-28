@@ -12,6 +12,8 @@
 
 189 Rotate Array
 
+198 House Robber
+
 204 Count Primes
 
 235 Lowest Common Ancestor of a Binary Search Tree
@@ -29,5 +31,7 @@
 665 Non-decreasing Array
 
 720 Longest Word in Dictionary
+
+849 Maximize Distance to Closest Person
 
 852 Peak Index in a Mountain Array

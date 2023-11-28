@@ -11,6 +11,8 @@
 #include <bitset>
 #include <array>
 #include <stack>
+#include <algorithm>
+#include <numeric>
 #include <unordered_map>
 #include <unordered_set>
 #include <random>
@@ -50,22 +52,49 @@ struct TreeNode
 // my version
 
 // 1 version
-class Solution 
-{
-public:
-	int trailingZeroes(int n) 
-	{
-		int sum = 0;
-		while (n > 0)
-		{
-			n /= 5;
-			sum += n;
-		}
-		return sum;
-	}
-};
+//class Solution 
+//{
+//public:
+//	std::string addBinary(const std::string & a, const std::string & b) 
+//	{
+//		assert(!a.empty() && !b.empty());
+//		std::vector<char> res;
+//		
+//		for(int carry = 0, ia = (int)a.size() - 1, ib = (int)b.size() - 1;
+//			carry > 0 || ia >= 0 || ib >= 0; ia--, ib--)
+//		{		
+//			int sum = carry + (ia >= 0 ? a[ia] - '0' : 0) + 
+//				(ib >=0 ? b[ib] - '0' : 0);
+//			res.push_back(char((sum & 1) + '0'));
+//			carry = (sum >> 1);
+//		}
+//		assert(!res.empty());
+//		return std::string(res.rbegin(), res.rend());
+//	}
+//};
 
 // 2 version
+class Solution
+{
+public:
+	std::string addBinary(const std::string& a, const std::string& b)
+	{
+		assert(!a.empty() && !b.empty());
+		std::string res;
+
+		for (int carry = 0, ia = (int)a.size() - 1, ib = (int)b.size() - 1;
+			carry > 0 || ia >= 0 || ib >= 0; ia--, ib--)
+		{
+			int sum = carry + (ia >= 0 ? a[ia] - '0' : 0) +
+				(ib >= 0 ? b[ib] - '0' : 0);
+			res.push_back(char((sum & 1) + '0'));
+			carry = (sum >> 1);
+		}
+		assert(!res.empty());
+		std::reverse(res.begin(), res.end());
+		return res;
+	}
+};
 
 // 3 version
 
@@ -77,16 +106,12 @@ public:
 
 // 7 version
 
+
 int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
 {
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr);
 
-	//Solution s;
-	//std::cout << s.reverseBits(3) << std::endl;
-
-	int* p1 = (int*)malloc(4 * sizeof(int));
-	free(p1);
 
 	return EXIT_SUCCESS;
 }

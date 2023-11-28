@@ -53,15 +53,18 @@ struct TreeNode
 class Solution 
 {
 public:
-	int trailingZeroes(int n) 
+	bool hasPathSum(TreeNode* root, int targetSum) 
 	{
-		int sum = 0;
-		while (n > 0)
+		if (root == nullptr)
+			return false;
+		if (root->left == nullptr && root->right == nullptr)
+			return root->val == targetSum;
+		else
 		{
-			n /= 5;
-			sum += n;
+			return
+				hasPathSum(root->left, targetSum - root->val) ||
+				hasPathSum(root->right, targetSum - root->val);
 		}
-		return sum;
 	}
 };
 
@@ -77,16 +80,13 @@ public:
 
 // 7 version
 
+
 int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
 {
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr);
 
-	//Solution s;
-	//std::cout << s.reverseBits(3) << std::endl;
-
-	int* p1 = (int*)malloc(4 * sizeof(int));
-	free(p1);
 
 	return EXIT_SUCCESS;
 }
+

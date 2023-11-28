@@ -11,6 +11,8 @@
 #include <bitset>
 #include <array>
 #include <stack>
+#include <algorithm>
+#include <numeric>
 #include <unordered_map>
 #include <unordered_set>
 #include <random>
@@ -50,22 +52,64 @@ struct TreeNode
 // my version
 
 // 1 version
+//class Solution 
+//{
+//public:
+//    std::vector<int> findErrorNums(const std::vector<int>& a) 
+//	{
+//		long long sum = 0;
+//		long long sum2 = 0;
+//		long long needSum = 0;
+//		long long needSum2 = 0;
+//		for (int i = 0; i < (int)a.size(); ++i)
+//		{
+//			sum += a[i];
+//			sum2 += a[i] * a[i];
+//			needSum += (i + 1);
+//			needSum2 += (i + 1) * (i + 1);
+//		}
+//		// new - old = sum - needSum
+//		// nem^2 - old^2 = sum2 - needSum2
+//
+//		// new + old = (sum2 - needSum2) / (sum - needSum)
+//		// new - old = sum - needSum
+//
+//		// new = ((sum2 - needSum2) / (sum - needSum) + (sum - needSum)) / 2
+//		// old = ((sum2 - needSum2) / (sum - needSum) - (sum - needSum)) / 2
+//
+//		return
+//		{
+//			int((sum2 - needSum2) / (sum - needSum) + (sum - needSum)) / 2,
+//			int((sum2 - needSum2) / (sum - needSum) - (sum - needSum)) / 2
+//		};
+//    }
+//};
+
+// 2 version
 class Solution 
 {
 public:
-	int trailingZeroes(int n) 
+	std::vector<int> findErrorNums(std::vector<int>& a) 
 	{
-		int sum = 0;
-		while (n > 0)
+		for (int i = 0; i < static_cast<int>(a.size()); ++i)
 		{
-			n /= 5;
-			sum += n;
+			while (true)
+			{
+				int j = a[i] - 1;
+				if (a[j] == a[i])
+					break;
+				std::swap(a[i], a[j]);
+			}
 		}
-		return sum;
+		
+		for (int i = 0; i < static_cast<int>(a.size()); ++i)
+		{
+			if (a[i] != i + 1)
+				return { a[i], i + 1 };
+		}
+		throw std::invalid_argument("1..n array without change");
 	}
 };
-
-// 2 version
 
 // 3 version
 
@@ -77,16 +121,12 @@ public:
 
 // 7 version
 
+
 int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
 {
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr);
 
-	//Solution s;
-	//std::cout << s.reverseBits(3) << std::endl;
-
-	int* p1 = (int*)malloc(4 * sizeof(int));
-	free(p1);
 
 	return EXIT_SUCCESS;
 }

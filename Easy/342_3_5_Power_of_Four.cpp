@@ -11,6 +11,8 @@
 #include <bitset>
 #include <array>
 #include <stack>
+#include <algorithm>
+#include <numeric>
 #include <unordered_map>
 #include <unordered_set>
 #include <random>
@@ -50,43 +52,83 @@ struct TreeNode
 // my version
 
 // 1 version
-class Solution 
-{
-public:
-	int trailingZeroes(int n) 
-	{
-		int sum = 0;
-		while (n > 0)
-		{
-			n /= 5;
-			sum += n;
-		}
-		return sum;
-	}
-};
+//class Solution 
+//{
+//public:
+//	bool isPowerOfFour(int n) 
+//	{
+//		if (n <= 0)
+//			return false;
+//		while (n % 4 == 0)
+//		{
+//			n /= 4;
+//		}
+//		return n == 1;
+//	}
+//};
 
 // 2 version
+//class Solution 
+//{
+//public:
+//	bool isPowerOfFour(int n) 
+//	{
+//		if (!(n > 0 && (n & (n - 1)) == 0))
+//			return false;
+//		int sq = (int)round(sqrt(n));
+//		return sq * sq == n;
+//	}
+//};
 
 // 3 version
+//class Solution 
+//{
+//public:
+//	bool isPowerOfFour(int n) 
+//	{
+//		if (!(n > 0 && (n & (n - 1)) == 0))
+//			return false;
+//		
+//		return (n & 0x55555555) != 0;
+//	}
+//};
 
 // 4 version
+//class Solution
+//{
+//public:
+//	bool isPowerOfFour(int n)
+//	{
+//		if (!(n > 0 && (n & (n - 1)) == 0))
+//			return false;
+//
+//		return (n & 0x55555555) == n;
+//	}
+//};
 
 // 5 version
+class Solution
+{
+public:
+	bool isPowerOfFour(int n)
+	{
+		if (!(n > 0 && (n & (n - 1)) == 0))
+			return false;
+
+		return (n & 0xAAAAAAAA) == 0;
+	}
+};
 
 // 6 version
 
 // 7 version
+
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
 {
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr);
 
-	//Solution s;
-	//std::cout << s.reverseBits(3) << std::endl;
-
-	int* p1 = (int*)malloc(4 * sizeof(int));
-	free(p1);
 
 	return EXIT_SUCCESS;
 }

@@ -211,7 +211,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr);
 
-	Solution s;
+	//Solution s;
 	//std::cout << s.reverseBits(3) << std::endl;
 
 	int* p1 = (int*)malloc(4 * sizeof(int));

@@ -14,12 +14,25 @@ endforeach(src_file ${SRC_FILES})
 foreach(target ${TARGETS})
     set_target_properties(${target}
     PROPERTIES
-    CXX_STANDARD 17
+    CXX_STANDARD 20
     CXX_STANDARD_REQUIRED ON
     )
     target_compile_options(${target} PRIVATE
             /EHsc /W4 #/WX
-        )
+    )
+message("Old CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
+IF(MSVC)
+# Use the highest warning level for visual c++ compiler.
+  SET(CMAKE_CXX_WARNING_LEVEL 4)
+  IF(CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
+    STRING(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+  ELSE(CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
+  ENDIF(CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
+ENDIF(MSVC)
+message("New CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
+
+
 endforeach(target ${TARGETS})
 
 #if (PRINT_ALL_VARS)

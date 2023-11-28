@@ -11,6 +11,8 @@
 #include <bitset>
 #include <array>
 #include <stack>
+#include <algorithm>
+#include <numeric>
 #include <unordered_map>
 #include <unordered_set>
 #include <random>
@@ -50,24 +52,59 @@ struct TreeNode
 // my version
 
 // 1 version
-class Solution 
-{
-public:
-	int trailingZeroes(int n) 
-	{
-		int sum = 0;
-		while (n > 0)
-		{
-			n /= 5;
-			sum += n;
-		}
-		return sum;
-	}
-};
+//class NumArray 
+//{
+//	std::vector<int> sum;	// sum[i] = nums[0] + ... + nums[i - 1]
+//public:
+//	NumArray(const std::vector<int>& nums) : sum(nums.size() + 1, 0)
+//	{
+//		for (int i = 0; i < (int)nums.size(); ++i)
+//		{
+//			sum[i + 1] = sum[i] + nums[i];
+//		}
+//	}
+//
+//	int sumRange(int left, int right) const
+//	{
+//		return sum[right + 1] - sum[left];
+//	}
+//};
 
 // 2 version
+//class NumArray 
+//{
+//	std::vector<int> sum;	// sum[i] = nums[0] + ... + nums[i - 1]
+//
+//public:
+//	NumArray(std::vector<int>& nums) : sum(nums.size() + 1, 0)
+//	{
+//		std::partial_sum(nums.begin(), nums.end(), sum.begin() + 1);
+//	}
+//
+//	int sumRange(int left, int right) {
+//		return sum[right + 1] - sum[left];
+//	}
+//};
 
 // 3 version
+class NumArray
+{
+	std::vector<int> & sum;	// sum[i] = nums[0] + ... + nums[i - 1]
+
+public:
+	NumArray(std::vector<int>& nums) : sum(nums)
+	{
+		std::partial_sum(nums.begin(), nums.end(), sum.begin());
+	}
+
+	int sumRange(int left, int right) 
+	{
+		if (left > 0)
+			return sum[right] - sum[left - 1];
+		else
+			return sum[right];
+	}
+};
 
 // 4 version
 
@@ -77,16 +114,12 @@ public:
 
 // 7 version
 
+
 int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
 {
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr);
 
-	//Solution s;
-	//std::cout << s.reverseBits(3) << std::endl;
-
-	int* p1 = (int*)malloc(4 * sizeof(int));
-	free(p1);
 
 	return EXIT_SUCCESS;
 }

@@ -11,6 +11,8 @@
 #include <bitset>
 #include <array>
 #include <stack>
+#include <algorithm>
+#include <numeric>
 #include <unordered_map>
 #include <unordered_set>
 #include <random>
@@ -50,22 +52,54 @@ struct TreeNode
 // my version
 
 // 1 version
-class Solution 
-{
-public:
-	int trailingZeroes(int n) 
-	{
-		int sum = 0;
-		while (n > 0)
-		{
-			n /= 5;
-			sum += n;
-		}
-		return sum;
-	}
-};
+//class Solution 
+//{
+//public:
+//    int maxDistToClosest(const std::vector<int>& a) 
+//	{
+//		int prev = -1;
+//		int max = 0;
+//		for (int i = 0; i < (int)a.size(); ++i)
+//		{
+//			if (a[i] == 1)
+//			{
+//				if (prev == -1)
+//					max = std::max(max, i);
+//				else
+//					max = std::max(max, (i - prev) / 2);
+//				prev = i;
+//			}
+//		}
+//		max = std::max(max, (int)a.size() - 1 - prev);
+//		return max;
+//    }
+//};
 
 // 2 version
+class Solution
+{
+public:
+	int maxDistToClosest(const std::vector<int>& a)
+	{
+		int prev = 0;		
+		while (a[prev] == 0)
+		{
+			prev++;
+		}
+		int max = prev;
+
+		for (int i = prev + 1; i < (int)a.size(); ++i)
+		{
+			if (a[i] == 1)
+			{			
+				max = std::max(max, (i - prev) / 2);
+				prev = i;
+			}
+		}
+		max = std::max(max, (int)a.size() - 1 - prev);
+		return max;
+	}
+};
 
 // 3 version
 
@@ -77,16 +111,12 @@ public:
 
 // 7 version
 
+
 int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
 {
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr);
 
-	//Solution s;
-	//std::cout << s.reverseBits(3) << std::endl;
-
-	int* p1 = (int*)malloc(4 * sizeof(int));
-	free(p1);
 
 	return EXIT_SUCCESS;
 }

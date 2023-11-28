@@ -11,6 +11,8 @@
 #include <bitset>
 #include <array>
 #include <stack>
+#include <algorithm>
+#include <numeric>
 #include <unordered_map>
 #include <unordered_set>
 #include <random>
@@ -50,17 +52,25 @@ struct TreeNode
 // my version
 
 // 1 version
-// !!! Time Limit Exceeded
 //class Solution 
 //{
 //public:
-//	bool containsNearbyDuplicate(std::vector<int>& a, int dist) 
+//	bool repeatedSubstringPattern(const std::string & s) 
 //	{
-//		for (int i = 0; i < (int)a.size(); ++i)
+//		for (int period = 1; 2 * period <= (int)s.size(); ++period)
 //		{
-//			for (int j = i + 1; j - i <= dist && j < (int)a.size(); ++j)
+//			if ((int)s.size() % period == 0)
 //			{
-//				if (a[i] == a[j])
+//				bool good = true;
+//				for (int i = period; i < (int)s.size(); ++i)
+//				{
+//					if (s[i] != s[i - period])
+//					{
+//						good = false;
+//						break;
+//					}
+//				}
+//				if (good)
 //					return true;
 //			}
 //		}
@@ -69,50 +79,69 @@ struct TreeNode
 //};
 
 // 2 version
-//class Solution
+//class Solution 
 //{
 //public:
-//	bool containsNearbyDuplicate(std::vector<int>& a, int dist)
+//	bool repeatedSubstringPattern(const std::string & s) 
 //	{
-//		std::unordered_set<int> last;
-//		for (size_t i = 0; i < a.size(); ++i)
+//		for (int period = 1; 2 * period <= (int)s.size(); ++period)
 //		{
-//			if (last.count(a[i]) > 0)
-//				return true;
-//
-//			last.insert(a[i]);
-//			if (i >= dist)
-//				last.erase(a[i - dist]);
+//			if ((int)s.size() % period == 0)
+//			{
+//				bool good = true;
+//				for (int i = (int)s.size() - 1; i >= period; --i)
+//				{
+//					if (s[i] != s[i - period])
+//					{
+//						good = false;
+//						break;
+//					}
+//				}
+//				if (good)
+//					return true;
+//			}
 //		}
-//	
 //		return false;
 //	}
 //};
 
 // 3 version
+//class Solution
+//{
+//public:
+//	bool repeatedSubstringPattern(const std::string& s)
+//	{
+//		return (s + s).find(s, 1) < s.size();
+//	}
+//};
+
+// 4 version
 class Solution
 {
 public:
-	bool containsNearbyDuplicate(std::vector<int>& a, int dist)
+	bool repeatedSubstringPattern(const std::string& s)
 	{
-		if (dist <= 0)
-			return false;
-		std::unordered_set<int> last;
-		for (size_t i = 0; i < a.size(); ++i)
+		std::vector<int> prefix(1 + s.size(), 0);	// prefix[len] -> len
+		for (int len = 2; len <= (int)s.size(); ++len)
 		{
-			if (last.count(a[i]) > 0)
-				return true;
-
-			last.insert(a[i]);
-			if (i >= dist)
-				last.erase(a[i - dist]);
+			int plen = prefix[len - 1];
+			while (true)
+			{
+				if (s[plen] == s[len - 1])
+				{
+					plen++;
+					break;
+				}
+				if (plen == 0)
+					break;
+				plen = prefix[plen];
+			}
+			prefix[len] = plen;
 		}
-
-		return false;
+		int period = (int)s.size() - prefix.back();
+		return (period < (int)s.size() && s.size() % period == 0);		
 	}
 };
-
-// 4 version
 
 // 5 version
 
@@ -120,16 +149,12 @@ public:
 
 // 7 version
 
+
 int main([[maybe_unused]] int argc, [[maybe_unused]] char const* argv[])
 {
 	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(nullptr);
 
-	//Solution s;
-	//std::cout << s.reverseBits(3) << std::endl;
-
-	int* p1 = (int*)malloc(4 * sizeof(int));
-	free(p1);
 
 	return EXIT_SUCCESS;
 }
